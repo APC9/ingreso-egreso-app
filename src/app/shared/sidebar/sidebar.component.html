@@ -9,9 +9,9 @@
           </div>
 
           <div class="text-wrapper">
-            <p class="profile-name">Cristobal Colón</p>
+            <p class="profile-name">{{name}}</p>
             <div>
-              <small class="designation text-muted">Gerente</small>
+              <small class="designation text-muted">Web</small>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link cursor" routerLink="/auth/login">
+      <a class="nav-link" (click)="logout()" style="cursor: pointer;">
         <i class="menu-icon fa fa-sign-out-alt"></i>
         <span class="menu-title">Cerrar sesión</span>
       </a>

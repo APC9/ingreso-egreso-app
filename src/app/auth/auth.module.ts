@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+//NGRX
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './auth.reducer';
 
 import { AuthRoutingModule } from './auth-routing.module';
 
@@ -20,6 +25,10 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     AuthRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
+
+    //NGRX
+    StoreModule.forFeature( 'authReducer', authReducer )
   ]
 })
 export class AuthModule { }

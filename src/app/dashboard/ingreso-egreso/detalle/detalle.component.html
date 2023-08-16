@@ -1,7 +1,17 @@
 <div class="row">
   <div class="col-12">
       <div class="card">
-        <div class="card-body">
+
+        <div
+          class="card-body text-bg-info d-flex justify-content-center"
+          *ngIf="isLoading">
+
+          <h1>
+            <i class="fa fa-spinner fa-spin"></i> Cargando....
+          </h1>
+        </div>
+
+        <div class="card-body" *ngIf="!isLoading">
           <h4 class="card-title">Detalle de ingreso egreso</h4>
 
           <table class="table">
@@ -15,11 +25,16 @@
             </thead>
 
             <tbody>
-              <tr>
-                <td>Descripción</td>
-                <td>Monto</td>
-                <td>Tipo</td>
-                <td>acciones</td>
+              <tr *ngFor="let item of items | ingresoEgresoOrden " >
+                <td [style.background]="item.tipo === 'ingreso'? 'lightblue': 'coral' ">{{item.descripcion}}</td>
+                <td [style.background]="item.tipo === 'ingreso'? 'lightblue': 'coral' ">{{item.monto | currency}}</td>
+                <td [style.background]="item.tipo === 'ingreso'? 'lightblue': 'coral' ">{{item.tipo}}</td>
+                <td [style.background]="item.tipo === 'ingreso'? 'lightblue': 'coral' ">
+                  <button class="btn btn-danger" (click)="deleteItem(item)">
+                    <i class="fa fa-trash"></i>
+                    Borrar
+                  </button>
+                </td>
               </tr>
             </tbody>
 

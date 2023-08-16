@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+//NGRX
+import { StoreModule } from '@ngrx/store';
+import { uiReducer } from './ui.reducer';
+
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +20,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    StoreModule.forFeature( 'uiReducer', uiReducer )
   ],
   exports:[
     FooterComponent,
